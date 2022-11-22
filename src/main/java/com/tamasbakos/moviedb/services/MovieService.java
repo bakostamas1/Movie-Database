@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MovieService {
+
   private final MovieDao movieDao;
 
   public MovieService(MovieDao movieDao) {

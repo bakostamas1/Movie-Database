@@ -18,19 +18,19 @@ public class MovieDataAccessService implements MovieDao {
   @Override
   public List<Movie> selectMovies() {
     var sql = """
-                SELECT id, name, release_date
-                FROM movie
-                LIMIT 100;
-                 """;
+        SELECT id, name, release_date
+        FROM movie
+        LIMIT 100;
+         """;
     return jdbcTemplate.query(sql, new MovieRowMapper());
   }
 
   @Override
   public int insertMovie(Movie movie) {
     var sql = """
-                INSERT INTO movie(name, release_date)
-                VALUES (?, ?);
-                 """;
+        INSERT INTO movie(name, release_date)
+        VALUES (?, ?);
+         """;
     return jdbcTemplate.update(
         sql,
         movie.name(), movie.releaseDate()
@@ -40,19 +40,19 @@ public class MovieDataAccessService implements MovieDao {
   @Override
   public int deleteMovie(int id) {
     var sql = """
-                DELETE FROM movie   
-                WHERE id = ?
-                """;
+        DELETE FROM movie   
+        WHERE id = ?
+        """;
     return jdbcTemplate.update(sql, id);
   }
 
   @Override
   public Optional<Movie> selectMovieById(int id) {
     var sql = """
-                SELECT id, name, release_date
-                FROM movie
-                WHERE id = ?
-                 """;
+        SELECT id, name, release_date
+        FROM movie
+        WHERE id = ?
+         """;
     return jdbcTemplate.query(sql, new MovieRowMapper(), id)
         .stream()
         .findFirst();
