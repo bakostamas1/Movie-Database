@@ -58,4 +58,12 @@ public class MovieDataAccessService implements MovieDao {
         .findFirst();
   }
 
+  @Override
+  public List<Movie> getAllMovies() {
+    var sql = """
+        SELECT *
+        FROM movie
+         """;
+    return jdbcTemplate.query(sql, new MovieRowMapper());
+  }
 }

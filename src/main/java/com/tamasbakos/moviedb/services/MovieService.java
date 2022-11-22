@@ -44,4 +44,8 @@ public class MovieService {
     return movieDao.selectMovieById(id)
         .orElseThrow(() -> new NotFoundException(String.format("Movie with id %s not found", id)));
   }
+
+  public List<Movie> getAllMovies() {
+    return movieDao.getAllMovies();
+  }
 }

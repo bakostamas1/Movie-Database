@@ -14,4 +14,5 @@ public interface MovieDao {
 
   Optional<Movie> selectMovieById(int id);
   // TODO: Update
+  List<Movie> getAllMovies();
 }
