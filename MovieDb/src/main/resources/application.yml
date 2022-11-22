@@ -1,0 +1,18 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+
+info:
+  application:
+    name: movie-database
+    description: A database with movie entities about the Spring Framework.
+    author: Tamas Bakos
+    version: '@project.version@'
+spring:
+  profiles:
+    active: dev
